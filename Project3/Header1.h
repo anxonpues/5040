@@ -31,6 +31,7 @@ void siembra(vector<vector<int>>& vctr)
 						elem.push_back(digits.at(j));
 						elem.push_back(digits.at(k));
 						elem.push_back(digits.at(l));
+						// AQUI PONER UN 1 EN OTRA POSICION PARA PASARLO A 0 CUANDO CRIBA LO EXCLUYA
 						vctr.push_back(elem);
 						elem.clear();
 						//cont++;
@@ -41,13 +42,16 @@ void siembra(vector<vector<int>>& vctr)
 bool criba(vector<vector<int>>& ldl, vector<int>& tryit, int da)
 {
 	bool coh = false;
-	int sz_ldl = ldl.size();
+	int sz_ldl = (int)ldl.size(); // AQUI COMO NO PIENSO REDUCIR ldl SINO PONER 0 EN LOS RECHAZADOS 
 	for (int i = sz_ldl - 1; i >= 0; i--)
 	{
+		// esto dentro de un if que mire la 5ª posicion del ldl
 		int res = DyA(ldl.at(i), tryit);
 		if (res != da)
 		{
 			ldl.erase(i + ldl.begin());
+			// EN LUGAR DE ERASE   PONER A 0 EL 5º COMPONENTE
+			//FINALMENTE LLAMAR A LA REPRESENTACION DE LUCES DE LOS QUE SIGUEN CON UN UNO USANDO olcPGE optimizado!!!
 		}
 		else
 			coh = true;

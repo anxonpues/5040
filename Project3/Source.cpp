@@ -6,7 +6,11 @@ int main()
 	vector<vector<int>> lsts;
 	vector<int> intento{};
 	siembra(lsts);
-	intento = lsts[rndm(0, isz(lsts))];
+	intento = lsts[rndm(0, isz(lsts))]; /* this need to be changed
+										as instead of erasing elements
+										of lsts we will mark the 5th
+										element as 0 or 1 to allow us to
+										print a map of options graphically */
 	cout << "\n";
 	cout.width(5);
 	cout << lsts.size() << "  ";
